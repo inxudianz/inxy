@@ -9,7 +9,7 @@ const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('
 const cooldowns = new Discord.Collection();
 
 for (const file of commandFiles) {
-	const command = require('./commands/' + file);
+	const command = require(`./commands/${file}`);
 	client.commands.set(command.name, command);
 }
 
@@ -31,7 +31,7 @@ client.on('message', message => {
 		return message.reply('Won\'t work on DM\'s');
 	}
 	if (command.args && !args.length) {
-		return message.reply('Please provide argument: \'' + command.prefix + command.name + command.usage + '\'');
+		return message.reply(`Please provide argument: '${command.prefix} ${command.name} ${command.usage}'`);
 	}
 
 	if(!cooldowns.has(command.name)) {

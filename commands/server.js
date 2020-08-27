@@ -8,6 +8,6 @@ module.exports = {
 	usage: '',
 	guildOnly: true,
 	execute(message) {
-		message.channel.send('I\'m currently on ' + message.channel.name);
+		message.channel.send(`I\'m currently on ${message.channel.name}`);
 	},
 };
